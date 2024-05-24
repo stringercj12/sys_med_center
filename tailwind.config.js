@@ -4,7 +4,15 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      "backgroundImage": {
+        "login": "url('/assets/jeshoots-com-LtNvQHdKkmw-unsplash.jpg')"
+      }
+    },
   },
-  plugins: [],
+  
+  plugins: [
+    require('@tailwindcss/forms'),
+    // ...
+  ],
 }

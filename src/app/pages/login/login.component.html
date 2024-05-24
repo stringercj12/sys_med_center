@@ -1,1 +1,79 @@
-<p>login works!</p>
+<div class="bg-login bg-no-repeat bg-center bg-cover md:bg-cover">
+  <div
+    class="w-screen h-screen bg-teal-100/35 flex items-center justify-center p-2"
+  >
+    <form
+      action=""
+      class="bg-white rounded-md p-4 px-6 md:max-w-96 w-full z-10"
+      [formGroup]="form"
+    >
+      <p
+        class="text-center text-xl font-medium text-gray-600 dark:text-gray-200 tcapitalize"
+      >
+        Login SysMedCenter
+      </p>
+
+      <div class="block mb-3">
+        <span class="text-gray-700">E-mail</span>
+        <input
+          type="text"
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          placeholder="E-mail"
+          formControlName="email"
+          [class.border-red-500]="
+            form.get('email')?.hasError('required') &&
+            form.get('email')?.touched
+          "
+        />
+        @if(form.get('email')?.hasError('required') &&
+        form.get('email')?.touched){
+        <span class="text-red-500 text-sm font-medium">
+          O e-mail é obrigatório
+        </span>
+        }
+      </div>
+
+      <label class="block mb-3">
+        <span class="text-gray-700">Senha</span>
+        <input
+          type="text"
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          placeholder="Senha"
+          formControlName="password"
+          [class.border-red-500]="
+            form.get('password')?.hasError('required') &&
+            form.get('password')?.touched
+          "
+        />
+        @if(form.get('password')?.hasError('required') &&
+        form.get('password')?.touched){
+        <span class="text-red-500 text-sm font-medium">
+          A senha é obrigatório
+        </span>
+        }
+      </label>
+
+      <div class="block my-6">
+        <label class="inline-flex items-center">
+          <input
+            type="checkbox"
+            class="rounded bg-gray-200 border-transparent focus:border-transparent focus:bg-gray-200 text-gray-700 focus:ring-1 focus:ring-offset-2 focus:ring-gray-500"
+          />
+          <span class="ml-2">Lembrar meu acesso</span>
+        </label>
+      </div>
+
+      <button
+        class="py-2 px-3 bg-teal-500 text-white text-sm font-semibold rounded-md shadow focus:outline-none w-full"
+      >
+        Entrar
+      </button>
+
+      <a
+        class="text-teal-500 text-center font-medium text-sm my-3 block hover:underline"
+        href="http://"
+        >Esqueci minha senha</a
+      >
+    </form>
+  </div>
+</div>
